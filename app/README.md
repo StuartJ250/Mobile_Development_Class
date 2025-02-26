@@ -1,28 +1,114 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
 
-# WESTERN GOVERNORS UNIVERSITY 
-## D308 – MOBILE APPLICATION DEVELOPMENT (ANDROID)
-Welcome to Mobile Application Development (Android)! This is an opportunity for students to create page layouts with clean navigation, design mobile application infrastructure and user interfaces, develop secure database-backed mobile applications in an object-oriented language, document solutions for application requirements with storyboards and emulators, articulate challenges in the development process, and describe alternatives methods in overcoming mobile application development problems. 
+B.  Create an Android mobile application, compatible with Android 8.0 and higher. The application must use the Room Framework as an abstraction layer over the local SQLite database to save the data. The application must include the following functional requirements:
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this assessment, you have an opportunity to test your competency as a mobile application developer. Your understanding of mobile application structure and design will help you to develop applications to meet customer requirements. This task will allow you to demonstrate your ability to apply the skills learned in the course.
+- Created UI Package
+- Created dao package
+- Put MainActivity.java in UI package
+- Created ExcursionDetails.java in UI Package
+- Created VacationList.java in UI package
+- Created VacationDetails in UI package
+- Created onOptionsItemsSelected method in VacationList.Java on line 49-67
+- Created FloatingActionButton and set onClickListener in MainActivity.java on lines 27-36
+- Created FloatingActionButton and set onClickListener in VacationList.java on lines 31-38
+- Updated themes.xml to show Action bar
+- Updated build.gradle:app with Room dependencies
+- Updated build.gradle:D308 Jacobson with RoomVersion
+- Updated AndroidManifest.xml with parentActivityName for each java file in UI package
+- Updated Layout on activity_vacation_list.xml
+- Updated Layout on activity_vacation_details.xml
+- Updated Layout on activity_main.xml
+- 
+    1.  Create a user option to enter, update and delete vacations.
 
-## SUPPLEMENTAL RESOURCES 
-1.	How to clone a project to Android Studio using Git?
+        a.  Allow the user to add as many vacations as desired.
 
-> Ensure that Android Studio and Git are installed on your system.  New Project, Get from VCS button or the File/New/Project from Version Control. This will open a window  with a prompt to clone the project. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.
+        b.  Implement validation so that a vacation cannot be deleted if excursions are associated with it.
 
-2. How to create a branch and start Development?
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+    Note: The vacations and excursions are not pre-populated in the database, but are instead added by the user.
 
-- Android Studio method
-> In Android Studio, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
 
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+    2.  Include the following details for each vacation:
 
+        •  title (e.g., Bermuda Trip, Spring Break, London Trip)
+
+        •  hotel or other place where you will be staying
+
+        •  start date
+
+        •  end date
+
+    3.  Include features that allow the user to do the following for each vacation:
+
+        a.  Display a detailed view of the vacation, including all vacation details. This view can also be used to add and update the vacation information.
+
+        b.  Enter, edit, and delete vacation information.
+
+        c.  Include validation that the input dates are formatted correctly.
+
+        d.  Include validation that the vacation end date is after the start date.
+
+        e.  Include an alert that the user can set which will trigger on the start and end date, displaying the vacation title and whether it is starting or ending.
+
+        f.  Include sharing features so the user can share all the vacation details via a sharing feature (either e-mail, clipboard or SMS) that automatically populates with the vacation details.
+
+        g.  Display a list of excursions associated with each vacation.
+
+        h.  Add, update, and delete as many excursions as needed.
+
+    4.  Include the following details for each excursion:
+
+        •  The excursion title (e.g., Snorkeling, Hiking, Bus Tour, Cooking Lesson)
+
+        •  The excursion date
+
+    5.  Include features that allow the user to do the following for each excursion:
+
+        a.  Display a detailed view of the excursion, including the title, and date
+
+        b.  Enter, edit, and delete excursion information.
+
+        c.  Include validation that the input dates are formatted correctly.
+
+        d.  Include an alert that the user can set that will trigger on the excursion date, stating the excursion title.
+
+        e.  Include validation that the excursion date is during the associated vacation.
+
+
+    Note: If you do not commit with a message and push when you complete each of the tasks listed above, you will have to decompose their application to make the commits and pushes, even if it is already complete.
+
+
+C.  Design the application to include the following information, including appropriate GUI (graphical user interface) elements (e.g., navigation, input, and information) for each layout:
+
+    •  home screen
+
+    •  list of vacations
+
+    •  list of excursions associated with a vacation
+
+    •  detailed vacation view
+
+    •  detailed excursion view
+
+
+D.  Create a storyboard to demonstrate application flow that includes each of the menus and screens from part B.
+
+
+E.  Provide screenshots of generating the signed APK to demonstrate that you have created a deployment package. Include the signed APK file with your submission.
+
+
+    Note: Verify that all the required functions of your application are working by executing the APK file. If the app is modified, regenerate the APK so it includes all the revisions.
+
+
+F.  Create a Readme file including:
+
+    •  title and purpose of the application
+
+    •  directions for how to operate the application and reach all the rubric aspects
+
+    •  to which android version the signed APK is deployed
+
+    •  a link to the git repository
+
+
+G.  Demonstrate professional communication in the content and presentation of your submission.
