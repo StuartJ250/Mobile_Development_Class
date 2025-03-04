@@ -1,5 +1,5 @@
 
-B.  Create an Android mobile application, compatible with Android 8.0 and higher. The application must use the Room Framework as an abstraction layer over the local SQLite database to save the data. The application must include the following functional requirements:
+**Part 1:** 
 
 - Created UI Package
 - Created dao package
@@ -17,65 +17,35 @@ B.  Create an Android mobile application, compatible with Android 8.0 and higher
 - Updated Layout on activity_vacation_list.xml
 - Updated Layout on activity_vacation_details.xml
 - Updated Layout on activity_main.xml
-- 
-    1.  Create a user option to enter, update and delete vacations.
 
-        a.  Allow the user to add as many vacations as desired.
+**Part 2:**
 
-        b.  Implement validation so that a vacation cannot be deleted if excursions are associated with it.
+- Created entities package
+- Created database package
+- Created Excursion.java in entities package
+- Created Vacation.java in entities package
+- Created VacationDAO.java in dao package
+- created ExcursionDAO.java in dao package
+- Created VacationDatabaseBuilder in database package
+- Created Repository.java in database package
+- Added repository to VacationList.java on lines 24 and 58
+- Added template code to test database in VacationList.java on lines 58-69
 
+**Part 3:**
 
-    Note: The vacations and excursions are not pre-populated in the database, but are instead added by the user.
+- Created vacation_list_item.xml in layout package
+- Created excursion_list_item.xml in layout package
+- removed scrollview and linearlayout from activity_vacation_list.xml 
+- Updated activity_vacation_details.xml with a scrollview and multiple textViews and EditTexts from line 11-96
+- Added recyclerview to activity_vacation_details.xml on lines 110-117
+- Added Recyclerview to activity_vacation_list.xml on lines 23-32
+- Created VacationAdapter.java in UI package
+- Created ExcursionAdapter.java in UI package
+- Added RecyclerView to VacationList.java on lines 45-51
+- Added code to show recyclerview, update, and save to vacation table on database to VacationDetails.java on lines 28-40, 48-121
+- added menu_vacation_details.xml to menu package
+- removed landscape xml files so i can refresh once code is complete
 
-
-    2.  Include the following details for each vacation:
-
-        •  title (e.g., Bermuda Trip, Spring Break, London Trip)
-
-        •  hotel or other place where you will be staying
-
-        •  start date
-
-        •  end date
-
-    3.  Include features that allow the user to do the following for each vacation:
-
-        a.  Display a detailed view of the vacation, including all vacation details. This view can also be used to add and update the vacation information.
-
-        b.  Enter, edit, and delete vacation information.
-
-        c.  Include validation that the input dates are formatted correctly.
-
-        d.  Include validation that the vacation end date is after the start date.
-
-        e.  Include an alert that the user can set which will trigger on the start and end date, displaying the vacation title and whether it is starting or ending.
-
-        f.  Include sharing features so the user can share all the vacation details via a sharing feature (either e-mail, clipboard or SMS) that automatically populates with the vacation details.
-
-        g.  Display a list of excursions associated with each vacation.
-
-        h.  Add, update, and delete as many excursions as needed.
-
-    4.  Include the following details for each excursion:
-
-        •  The excursion title (e.g., Snorkeling, Hiking, Bus Tour, Cooking Lesson)
-
-        •  The excursion date
-
-    5.  Include features that allow the user to do the following for each excursion:
-
-        a.  Display a detailed view of the excursion, including the title, and date
-
-        b.  Enter, edit, and delete excursion information.
-
-        c.  Include validation that the input dates are formatted correctly.
-
-        d.  Include an alert that the user can set that will trigger on the excursion date, stating the excursion title.
-
-        e.  Include validation that the excursion date is during the associated vacation.
-
-
-    Note: If you do not commit with a message and push when you complete each of the tasks listed above, you will have to decompose their application to make the commits and pushes, even if it is already complete.
 
 
 C.  Design the application to include the following information, including appropriate GUI (graphical user interface) elements (e.g., navigation, input, and information) for each layout:
