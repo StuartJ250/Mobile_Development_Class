@@ -7,4 +7,70 @@
     android:layout_height="match_parent"
     tools:context=".UI.ExcursionDetails">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="?attr/actionBarSize">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_margin="2dp"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:text="Excursion: " />
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:id="@+id/excursionnametext"
+                android:hint="Name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:text="Date:"
+                />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:hint="Choose Date"
+                android:id = "@+id/editDate"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height = "match_parent"
+                android:layout_margin="2dp"
+                android:text="Note: "/>
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:id="@+id/note" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

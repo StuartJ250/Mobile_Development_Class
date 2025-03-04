@@ -46,6 +46,21 @@
 - added menu_vacation_details.xml to menu package
 - removed landscape xml files so i can refresh once code is complete
 
+**Part 4:**
+
+- Updated activity_excursion_details.xml to include detail form on lines 10-59
+- Added onOptionsItemSelected in ExcursionDetails.java on lines 137-193
+- Added inflator in ExcursionDetails.java on lines 132-135
+- Added variables in ExcursionDetails.java on lines 38-53
+- Added code for datePicker in ExcursionDetails.java on lines 60-123
+- Added updateLabelStart in ExcursionDetails.java on lines 126-130
+- Added code for delete menu item in VacationDetails.java on lines 122-142
+- Added onResume to VacationDetails.java on lines 146-158
+- Added 2 variables to VacationDetails.java on lines 34-35
+- Created menu_excursion_details.xml in menu package
+- Created MyReceiver.java in UI package
+- added numAlert variable to MainActivity.java on line 18
+- Added layout details to activity_excursion_details.xml on lines 9-74
 
 
 C.  Design the application to include the following information, including appropriate GUI (graphical user interface) elements (e.g., navigation, input, and information) for each layout:
