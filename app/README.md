@@ -62,18 +62,18 @@
 - added numAlert variable to MainActivity.java on line 18
 - Added layout details to activity_excursion_details.xml on lines 9-74
 
+  **Recommited because last commit shows entire readme file instead of just part 4**
+  C.  Design the application to include the following information, including appropriate GUI (graphical user interface) elements (e.g., navigation, input, and information) for each layout:
 
-C.  Design the application to include the following information, including appropriate GUI (graphical user interface) elements (e.g., navigation, input, and information) for each layout:
+      •  home screen
 
-    •  home screen
+      •  list of vacations
 
-    •  list of vacations
+      •  list of excursions associated with a vacation
 
-    •  list of excursions associated with a vacation
+      •  detailed vacation view
 
-    •  detailed vacation view
-
-    •  detailed excursion view
+      •  detailed excursion view
 
 
 D.  Create a storyboard to demonstrate application flow that includes each of the menus and screens from part B.
