@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class ExcursionDetails extends AppCompatActivity {
@@ -59,17 +61,18 @@ public class ExcursionDetails extends AppCompatActivity {
         setContentView(R.layout.activity_excursion_details);
         repository = new Repository(getApplication());
 
+        name = getIntent().getStringExtra("name");
         editName = findViewById(R.id.excursionnametext);
+        editName.setText(name);
+
+        date = getIntent().getStringExtra("date");
         editDate = findViewById(R.id.editDate);
+        editDate.setText(date);
+
         editNote = findViewById(R.id.note);
 
-        name = getIntent().getStringExtra("name");
-        date = getIntent().getStringExtra("date");
         excursionID = getIntent().getIntExtra("id", -1);
-        vacationID = getIntent().getIntExtra("id", -1);
-
-        editName.setText(name);
-        editDate.setText(date);
+        vacationID = getIntent().getIntExtra("vacationID", -1);
 
         String myFormat = "MM/dd/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -80,15 +83,19 @@ public class ExcursionDetails extends AppCompatActivity {
                 myCalendarStart.set(Calendar.YEAR, year);
                 myCalendarStart.set(Calendar.MONTH, month);
                 myCalendarStart.set(Calendar.DAY_OF_MONTH, day);
+
+                updateLabelStart();
             }
-        };;
+        };
 
         editDate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Date date;
                 String info = editDate.getText().toString();
-                if(info.equals(""))info="03/01/2025";
+                if(info.equals("")){
+                    info="03/01/25";
+                }
                 try{
                     myCalendarStart.setTime(sdf.parse(info));
 
@@ -99,28 +106,7 @@ public class ExcursionDetails extends AppCompatActivity {
             }
         });
 
-        datePicker = new DatePickerDialog.OnDateSetListener(){
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day){
-                myCalendarStart.set(Calendar.YEAR, year);
-                myCalendarStart.set(Calendar.MONTH, month);
-                myCalendarStart.set(Calendar.DAY_OF_MONTH, day);
-                updateLabelStart();
-            }
-        };
 
-
-        ArrayList<Vacation> vacationArrayList = new ArrayList<>();
-        vacationArrayList.addAll(repository.getmAllVacations());
-        ArrayList<Integer> vacationIDList = new ArrayList<>();
-        for(Vacation vacation:vacationArrayList){
-            vacationIDList.add(vacation.getVacationID());
-        }
-
-        Spinner spinner = findViewById(R.id.spinner);
-        ArrayAdapter<Integer> vacationIDAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, vacationIDList);
-        spinner.setAdapter(vacationIDAdapter);
-        spinner.setSelection(0);
     }
 
     private void updateLabelStart(){
@@ -135,31 +121,60 @@ public class ExcursionDetails extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
-        Excursion excursion;
 
         if(item.getItemId() == android.R.id.home){
             this.finish();
             return true;
         }
         if(item.getItemId() == R.id.excursionSave) {
-            if (excursionID == -1) {
-                if (repository.getmAllExcursions().size() == 0) {
-                    excursionID = 1;
-                }
-                else {
-                    excursionID = repository.getmAllExcursions().get(repository.getmAllExcursions().size() - 1).getVacationID() + 1;
-                    excursion = new Excursion(excursionID, editName.getText().toString(), editDate.getText().toString(), vacationID);
-                    repository.insert(excursion);
-                }
+            String myFormat = "MM/dd/yy";
+            SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+            String excursionDate = sdf.format(myCalendarStart.getTime());
+            Vacation vacation = null;
+            List<Vacation> vacations = repository.getmAllVacations();
+            Excursion excursion;
 
+            for (Vacation vacay : vacations){
+                if (vacay.getVacationID() == vacationID){
+                    vacation = vacay;
+                }
             }
-            else{
-                excursion = new Excursion(excursionID, editName.getText().toString(), editDate.getText().toString(), vacationID);
-                repository.update(excursion);
+            try{
+                Date eDate = sdf.parse(excursionDate);
+                Date sDate = sdf.parse(vacation.getStartDate());
+                Date endDate = sdf.parse(vacation.getEndDate());
+                if (eDate.before(sDate) || eDate.after(endDate)){
+                    Toast.makeText(this,"Excursion Date must be within Vacation dates", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    if (excursionID == -1) {
+                        if (repository.getmAllExcursions().size() == 0) {
+                            excursionID = 1;
+                            excursion = new Excursion(excursionID, editName.getText().toString(), editDate.getText().toString(), vacationID);
+                            repository.insert(excursion);
+                            this.finish();
+                        }
+                        else {
+                            excursionID = repository.getmAllExcursions().get(repository.getmAllExcursions().size() - 1).getExcursionID() + 1;
+                            excursion = new Excursion(excursionID, editName.getText().toString(), editDate.getText().toString(), vacationID);
+                            repository.insert(excursion);
+                            this.finish();
+                        }
 
+                    }
+                    else{
+                        excursion = new Excursion(excursionID, editName.getText().toString(), editDate.getText().toString(), vacationID);
+                        repository.update(excursion);
+                        this.finish();
+                    }
+                }
+            } catch (ParseException e){
+                e.printStackTrace();
             }
+
             return true;
         }
+
         if(item.getItemId() == R.id.excursionShare){
             Intent sentIntent = new Intent();
             sentIntent.setAction(Intent.ACTION_SEND);
@@ -170,6 +185,7 @@ public class ExcursionDetails extends AppCompatActivity {
             startActivity(shareIntent);
             return true;
         }
+
         if (item.getItemId() == R.id.notify){
             String dateFromScreen = editDate.getText().toString();
             String myFormat = "MM/dd/yy";
@@ -190,5 +206,9 @@ public class ExcursionDetails extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    protected void onResume(){
+        super.onResume();
+        updateLabelStart();
     }
 }

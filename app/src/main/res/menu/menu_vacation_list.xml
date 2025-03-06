@@ -4,7 +4,5 @@
 
     <item android:title = "Sample"
         android:id = "@+id/sample"/>
-    <item android:title = "Sample2"
-        android:id = "@+id/sample2"/>
 
 </menu>

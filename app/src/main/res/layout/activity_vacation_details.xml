@@ -26,14 +26,15 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:text="Vacation: " />
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:id="@+id/nametext"
                     android:hint="Name" />
             </LinearLayout>
@@ -44,14 +45,15 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:text="Hotel: " />
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:id="@+id/hoteltext"
                     android:hint="hotel" />
             </LinearLayout>
@@ -61,16 +63,17 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:text="Start Date: " />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:id="@+id/startdate"
-                    android:hint="Date" />
+                    android:hint="Start Date" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,16 +81,17 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:text="End Date: " />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:id="@+id/enddate"
-                    android:hint="Date" />
+                    android:hint="End Date" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

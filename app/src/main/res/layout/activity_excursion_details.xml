@@ -65,11 +65,6 @@
                 android:layout_margin="2dp"
                 android:id="@+id/note" />
         </LinearLayout>
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 

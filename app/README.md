@@ -63,7 +63,23 @@
 - Added layout details to activity_excursion_details.xml on lines 9-74
 
   **Recommited because last commit shows entire readme file instead of just part 4**
-  C.  Design the application to include the following information, including appropriate GUI (graphical user interface) elements (e.g., navigation, input, and information) for each layout:
+
+
+**Fixing broken code and crashes:**
+- Removed a repeated method in ExcursionDetails.java on line 115
+- Rearranged some code in ExcursionDetails.java to make it more organized
+- Fixed save error in ExcursionDetails.java by moving variable from line 132 to line 138
+- Removed spinner as it was causing issues and didn't need to use it in activity_excursion_details.xml
+- Changed formatting of objects in activity_vacation_details.xml
+- Added onResume to excursionDetails.java on line 208
+- fixed syntax in VacationAdapter.java as it was causing dates to show as null, lines 73-74
+- deleted item in menu_vacation_list.xml that wasnt used currently
+- added intent.putExtra lines in VacationDetails.java on lines 92-94
+- Rearranged code on VacationDetails.java
+- Added validation code to dates on VacationDetails.java and ExcursionDetails.java
+- Added lines of code to VacationList.java on lines 75-77
+
+C.  Design the application to include the following information, including appropriate GUI (graphical user interface) elements (e.g., navigation, input, and information) for each layout:
 
       •  home screen
 

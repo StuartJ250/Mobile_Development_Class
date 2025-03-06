@@ -72,32 +72,25 @@ public class VacationList extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
 
+        if(item.getItemId() == android.R.id.home){
+            this.finish();
+        }
 
         if(item.getItemId() == R.id.sample){
             repository = new Repository(getApplication());
             //Toast.makeText(VacationList.this, "put in sample data", Toast.LENGTH_LONG).show();
-            Vacation vacation = new Vacation(0, "Kokomo", "Taco Bell", "3/30/2025", "4/10/2025");
+            Vacation vacation = new Vacation(0, "Kokomo", "Taco Bell", "3/30/25", "4/10/25");
             repository.insert(vacation);
-            vacation = new Vacation(0, "Bermuda", "Motel 9", "3/30/2025", "4/10/2025");
+            vacation = new Vacation(0, "Bermuda", "Motel 9", "3/30/25", "4/10/25");
             repository.insert(vacation);
-            Excursion excursion = new Excursion(0, "Biking", "4/01/2025", 1);
+            Excursion excursion = new Excursion(0, "Biking", "4/01/25", 1);
             repository.insert(excursion);
-            excursion = new Excursion(0, "Hiking", "4/01/2025", 1);
+            excursion = new Excursion(0, "Hiking", "4/01/25", 1);
             repository.insert(excursion);
-
 
             return true;
         }
 
-        if(item.getItemId() == R.id.sample2){
-            Toast.makeText(VacationList.this, "put in sample data", Toast.LENGTH_LONG).show();
-            return true;
-        }
-
-        if(item.getItemId() == android.R.id.home){
-            this.finish();
-        }
         return true;
-
     }
 }
