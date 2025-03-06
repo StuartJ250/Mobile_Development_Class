@@ -47,6 +47,7 @@ public class ExcursionDetails extends AppCompatActivity {
     EditText editNote;
 
     Repository repository;
+    Excursion currentExcursion;
 
     DatePickerDialog.OnDateSetListener datePicker;
     final Calendar myCalendarStart = Calendar.getInstance();
@@ -72,7 +73,7 @@ public class ExcursionDetails extends AppCompatActivity {
         editNote = findViewById(R.id.note);
 
         excursionID = getIntent().getIntExtra("id", -1);
-        vacationID = getIntent().getIntExtra("vacationID", -1);
+        vacationID = getIntent().getIntExtra("vacaID", -1);
 
         String myFormat = "MM/dd/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -130,6 +131,7 @@ public class ExcursionDetails extends AppCompatActivity {
             String myFormat = "MM/dd/yy";
             SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
             String excursionDate = sdf.format(myCalendarStart.getTime());
+
             Vacation vacation = null;
             List<Vacation> vacations = repository.getmAllVacations();
             Excursion excursion;
@@ -137,6 +139,7 @@ public class ExcursionDetails extends AppCompatActivity {
             for (Vacation vacay : vacations){
                 if (vacay.getVacationID() == vacationID){
                     vacation = vacay;
+                    break;
                 }
             }
             try{
@@ -178,8 +181,12 @@ public class ExcursionDetails extends AppCompatActivity {
         if(item.getItemId() == R.id.excursionShare){
             Intent sentIntent = new Intent();
             sentIntent.setAction(Intent.ACTION_SEND);
-            sentIntent.putExtra(Intent.EXTRA_TEXT, editNote.getText().toString()+ "EXTRA_TEXT");
-            sentIntent.putExtra(Intent.EXTRA_TITLE, editNote.getText().toString()+ "EXTRA_TITLE");
+            sentIntent.putExtra(Intent.EXTRA_TITLE, "Excursion Details");
+            StringBuilder shareExcursion = new StringBuilder();
+            shareExcursion.append("Excursion: " + editName.getText().toString() + "\n");
+            shareExcursion.append("Date: " + editDate.getText().toString() + "\n");
+            shareExcursion.append("Note: " + editNote.getText().toString() + "\n");
+            sentIntent.putExtra(Intent.EXTRA_TEXT, shareExcursion.toString());
             sentIntent.setType("text/plain");
             Intent shareIntent = Intent.createChooser(sentIntent, null);
             startActivity(shareIntent);
@@ -204,6 +211,18 @@ public class ExcursionDetails extends AppCompatActivity {
             alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
 
             return true;
+        }
+
+        if(item.getItemId() == R.id.excursionDelete){
+            for (Excursion excursion : repository.getmAllExcursions()) {
+                if (excursion.getExcursionID() == excursionID) {
+                    currentExcursion = excursion;
+                    break;
+                }
+            }
+            repository.delete(currentExcursion);
+            Toast.makeText(ExcursionDetails.this, currentExcursion.getExcursionName() + " was deleted.", Toast.LENGTH_LONG).show();
+            this.finish();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -79,37 +79,21 @@
 - Added validation code to dates on VacationDetails.java and ExcursionDetails.java
 - Added lines of code to VacationList.java on lines 75-77
 
-C.  Design the application to include the following information, including appropriate GUI (graphical user interface) elements (e.g., navigation, input, and information) for each layout:
-
-      •  home screen
-
-      •  list of vacations
-
-      •  list of excursions associated with a vacation
-
-      •  detailed vacation view
-
-      •  detailed excursion view
-
-
-D.  Create a storyboard to demonstrate application flow that includes each of the menus and screens from part B.
-
-
-E.  Provide screenshots of generating the signed APK to demonstrate that you have created a deployment package. Include the signed APK file with your submission.
-
-
-    Note: Verify that all the required functions of your application are working by executing the APK file. If the app is modified, regenerate the APK so it includes all the revisions.
-
-
-F.  Create a Readme file including:
-
-    •  title and purpose of the application
-
-    •  directions for how to operate the application and reach all the rubric aspects
-
-    •  to which android version the signed APK is deployed
-
-    •  a link to the git repository
-
-
-G.  Demonstrate professional communication in the content and presentation of your submission.
+**Completing the Requirements**
+- Completed B1 in previous Parts 1-4
+- Completed B2 in previous parts 1-4
+- Completed B3 parts a,b,g,h on Parts 1-4
+- Completed B3 parts c,d, under "Fixing broken code and crashes:"
+- Completed B4 in previous Parts 1-4
+- Completed B5 part a,b,c,d in previous parts 1-4
+- Added Delete functionality to ExcursionDetails.java on lines 210-220 completing B5 part b
+- Added alert code to VacationDetails.java on lines 247-283, completing B3 part e
+- Added share code to VacationDetails.java on lines 311-329, completing B3 part f
+- B3 completed
+- B5 part c, d completed in previous parts
+- Fixed line 76 of ExcursionDetails.java to align with ExcursionAdapter.java Intent
+- Fixed line 95 of VacationDetails.java to align with ExcursionAdapter.java and ExcursionDetails.java Intent
+- B5 part e complete
+- B5 complete
+- C complete during parts 1-4
+- D, E, and F will be created later
